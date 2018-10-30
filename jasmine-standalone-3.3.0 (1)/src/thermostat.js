@@ -1,9 +1,14 @@
 function Thermostat() {
   this.degrees = 20;
+  this.powerSavingMode = true;
 };
 
 Thermostat.prototype.degrees = function() {
   return this.degrees;
+};
+
+Thermostat.prototype.powerSavingMode = function() {
+  return this.powerSavingMode;
 };
 
 Thermostat.prototype.up = function() {

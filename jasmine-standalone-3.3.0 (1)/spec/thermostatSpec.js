@@ -53,4 +53,24 @@ describe("Thermostat", function() {
     thermostat.reset();
     expect(thermostat.degrees).toEqual(20);
   });
+
+  it("should display low-usage at less than 18 degrees", function() {
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    expect(thermostat.energyUsage()).toEqual("low-usage");
+  });
+
+  it("should display medium-usage at greater than 18 degrees but less than 25 degrees", function() {
+    expect(thermostat.energyUsage()).toEqual("medium-usage");
+  });
+
+  it("should display high-usage at 25 degrees and above", function() {
+    thermostat.up();
+    thermostat.up();
+    thermostat.up();
+    thermostat.up();
+    thermostat.up();
+    expect(thermostat.energyUsage()).toEqual("high-usage");
+  });
 });

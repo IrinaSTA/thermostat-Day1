@@ -28,3 +28,7 @@ Thermostat.prototype.down = function() {
     this.degrees -= 1;
   };
 };
+
+Thermostat.prototype.reset = function() {
+  this.degrees = 20;
+};

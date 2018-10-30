@@ -40,6 +40,7 @@ describe("Thermostat", function() {
   });
 
   it("should have a maximum temperature of 32 degrees if power saving mode is off", function() {
+    thermostat.turnOffPowerSavingMode();
     while (thermostat.degrees < 32) {
       thermostat.up();
     };

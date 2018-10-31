@@ -13,6 +13,13 @@ describe("Thermostat", function() {
     expect(thermostat.powerSavingMode).toEqual(true)
   });
 
+  it("should be able to turn power saving mode off and on", function() {
+    thermostat.turnOffPowerSavingMode();
+    expect(thermostat.powerSavingMode).toEqual(false)
+    thermostat.turnOnPowerSavingMode();
+    expect(thermostat.powerSavingMode).toEqual(true)
+  });
+
   it("should increase the temperature with an up function", function() {
     thermostat.up();
     expect(thermostat.degrees).toEqual(21);

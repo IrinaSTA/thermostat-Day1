@@ -23,6 +23,11 @@ Thermostat.prototype.turnOffPowerSavingMode = function() {
   this.maxTemp = 32;
 }
 
+Thermostat.prototype.turnOnPowerSavingMode = function() {
+  this.powerSavingMode = true;
+  this.maxTemp = 25;
+}
+
 Thermostat.prototype.down = function() {
   if (this.degrees > 10) {
     this.degrees -= 1;

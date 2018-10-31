@@ -1,14 +1,19 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
-  $('#temperature').text(thermostat.degrees);
-});
+  updateTemperature();
 
-$("#up").on('click', function() {
-  thermostat.up();
-  $("#temperature").text(thermostat.degrees);
-});
 
-$("#down").on('click', function() {
-  thermostat.down();
-  $("#temperature").text(thermostat.degrees);
+  $("#up").on('click', function() {
+    thermostat.up();
+    updateTemperature();
+  });
+
+  $("#down").on('click', function() {
+    thermostat.down();
+    updateTemperature();
+  });
+
+function updateTemperature() {
+    $('#temperature').text(thermostat.degrees);
+  };
 });

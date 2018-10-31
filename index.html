@@ -9,16 +9,13 @@
     <script src="src/interface.js"></script>
   </head>
   <body>
-    <script>var thermostat = new Thermostat;</script>
     <h3>Thermostat</h3>
     <h1 id="temperature"></h1>
-    <script>document.getElementById("temperature").innerHTML = thermostat.degrees;</script>
     <h6 id="energy_usage"></h6>
-    <script>document.getElementById("energy_usage").innerHTML = thermostat.energyUsage();</script>
-    <button id="up" onclick="thermostat.up();">Up</button>
-    <button id="down" onclick="thermostat.down();">Down</button>
-    <button id="reset" onclick="thermostat.reset();">Reset</button>
-    <button id="pwr_svg_on" onclick="thermostat.turnOnPowerSavingMode();">Power Saving On</button>
-    <button id="pwr_svg_off" onclick="thermostat.turnOffPowerSavingMode();">Power Saving Off</button>
+    <button id="up">Up</button>
+    <button id="down">Down</button>
+    <button id="reset">Reset</button>
+    <button id="pwr_svg_on">Power Saving On</button>
+    <button id="pwr_svg_off">Power Saving Off</button>
   </body>
 </html>

@@ -9,7 +9,7 @@ $(document).ready(function() {
     updateEnergyUsage();
   });
 
-  $("#down").on('click', function() {
+  $("#down").on('click', function () {
     thermostat.down();
     updateTemperature();
     updateEnergyUsage();
@@ -21,17 +21,6 @@ $(document).ready(function() {
     updateEnergyUsage();
   });
 
-// Playing around with toggle
-  // $("#pwr_svg").on('click', function(){
-  //   thermostat.turnOffPowerSavingMode();
-  //   updateEnergyUsage();
-  // });
-
-  // $("#pwr_svg_off1").on('click', function (){
-  //   thermostat.turnOffPowerSavingMode();
-  //   updateEnergyUsage();
-  // });
-
   $("#pwr_svg_on").on('click', function(){
     thermostat.turnOnPowerSavingMode();
     updateEnergyUsage();
@@ -40,6 +29,10 @@ $(document).ready(function() {
   $("#pwr_svg_off").on('click', function (){
     thermostat.turnOffPowerSavingMode();
     updateEnergyUsage();
+  });
+
+  $("#city_name").on('click', function (){
+    console.log("submit button clicked")
   });
 
   function updateTemperature() {
@@ -54,10 +47,12 @@ $(document).ready(function() {
 });
 
 $.ajax({
-  url: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=77380d472b8cd2201e8db5af55c82a7c",
-  // data: {
-  //   id: "77380d472b8cd2201e8db5af55c82a7c"
-  // },
+  url: "https://api.openweathermap.org/data/2.5/weather?",
+  data: {
+    q: "London",
+    appid: "77380d472b8cd2201e8db5af55c82a7c",
+    units: "metric",
+  },
   type: "GET",
   dataType: "json",
 })

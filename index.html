@@ -12,21 +12,23 @@
   <body>
     <h3>Thermostat</h3>
     <h1 id="temperature"></h1>
-    <h6 id="energy_usage"></h6>
+    <h5 id="energy_usage"></h5>
     <button id="up">Up</button>
     <button id="down">Down</button>
     <button id="reset">Reset</button>
     <button id="pwr_svg_on">Power Saving On</button>
     <button id="pwr_svg_off">Power Saving Off</button>
-<!-- For for entering a city; not hooked up to API call yet
+    <div style="margin: 10px">
     <form>
-      Please enter city: <input type="text" name="city"><br>
-      <input type="submit" value="Submit">
-    </form> -->
-<!-- Playing around with a toggle
-    <label class="switch">
-      <input type="checkbox" checked id="pwr_svg">
-      <span class="slider round"></span>
-    </label> -->
+      Please enter city for a weather report: <input type="text" class="city_name" id="city_name"><br>
+      <input id="submit_city" type="submit" value="Submit">
+    </form>
+    </div>
+    <!-- <script>
+      $('#submit').on('click', function () {
+        var city = document.body.getElementById('city_name');
+        document.body.insertAfter(city, form[0]);
+      });
+    </script> -->
   </body>
 </html>

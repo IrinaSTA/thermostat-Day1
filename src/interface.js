@@ -31,9 +31,20 @@ $(document).ready(function() {
     updateEnergyUsage();
   });
 
-  $("#city_name").on('click', function (){
-    console.log("submit button clicked")
+  $("#select-city").submit(function(event) {
+    event.preventDefault();
+    var city = $('#current-city').val();
+    displayWeather(city);
   });
+
+  function displayWeather(city) {
+    var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
+    var token = '&appid=77380d472b8cd2201e8db5af55c82a7c';
+    var units = '&units=metric';
+    $.get(url + token + units, function(data) {
+      $('#current-temperature').text(data.main.temp);
+    })
+  }
 
   function updateTemperature() {
     $('#temperature').text(thermostat.degrees);
@@ -45,30 +56,3 @@ $(document).ready(function() {
   };
 
 });
-
-$.ajax({
-  url: "https://api.openweathermap.org/data/2.5/weather?",
-  data: {
-    q: "London",
-    appid: "77380d472b8cd2201e8db5af55c82a7c",
-    units: "metric",
-  },
-  type: "GET",
-  dataType: "json",
-})
-
-.done(function(json) {
-  $("<h3>").text(json.main["temp"]).appendTo("body");
-  $("<div class=\"content\">").html(json.html).appendTo("body");
-})
-
-.fail(function( xhr, status, errorThrown ) {
-  alert( "Sorry, there was a problem!" );
-  console.log( "Error: " + errorThrown );
-  console.log( "Status: " + status );
-  console.dir( xhr );
-})
-
-// .always(function( xhr, status ) {
-//   alert( "The request is complete!" );
-// });
